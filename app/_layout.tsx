@@ -21,7 +21,7 @@ export const AppTheme = {
   colors: {
     ...MD3LightTheme.colors,
     primary: "#4C6A3E",
-    secondary: "#F7A64A", 
+    secondary: "#F7A64A",
     background: "#FFFFFF",
     surface: "#EAF0E4",
   },
@@ -44,9 +44,9 @@ export default function RootLayout() {
     <NavThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <PaperProvider theme={AppTheme}>
         <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(screens)/login" />
-          <Stack.Screen name="(screens)/registration" />
-          <Stack.Screen name="(screens)/passwordForget" />
+          <Stack.Screen name="login" />
+          <Stack.Screen name="registration" />
+          <Stack.Screen name="passwordForget" />
           <Stack.Screen name="(tabs)" />
         </Stack>
         <StatusBar style="auto" />

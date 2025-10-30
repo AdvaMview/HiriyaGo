@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, View, Image } from "react-native";
 import { TextInput, Button, Text, useTheme } from "react-native-paper";
 import { useRouter } from "expo-router";
 
@@ -18,73 +18,75 @@ export default function LoginScreen() {
 
     setTimeout(() => {
       setLoading(false);
-      router.replace("/(tabs)");
     }, 1200); // סימולציה של התחברות
+      router.replace("/(tabs)");
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text
-        variant="headlineMedium"
-        style={[styles.title, { color: colors.primary }]}
-      >
-        התחברות למערכת
-      </Text>
+    <>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text
+          variant="headlineMedium"
+          style={[styles.title, { color: colors.primary }]}
+        >
+          התחברות למערכת
+        </Text>
 
-      <TextInput
-        mode="outlined"
-        label="שם משתמש"
-        value={username}
-        onChangeText={setUsername}
-        style={styles.input}
-        outlineColor="#EAF0E4"
-        activeOutlineColor={colors.primary}
-      />
+        <TextInput
+          mode="outlined"
+          label="שם משתמש"
+          value={username}
+          onChangeText={setUsername}
+          style={styles.input}
+          outlineColor="#EAF0E4"
+          activeOutlineColor={colors.primary}
+        />
 
-      <TextInput
-        mode="outlined"
-        label="מספר רכב"
-        value={vehicleNumber}
-        onChangeText={setVehicleNumber}
-        style={styles.input}
-        outlineColor="#EAF0E4"
-        activeOutlineColor={colors.primary}
-      />
+        <TextInput
+          mode="outlined"
+          label="מספר רכב"
+          value={vehicleNumber}
+          onChangeText={setVehicleNumber}
+          style={styles.input}
+          outlineColor="#EAF0E4"
+          activeOutlineColor={colors.primary}
+        />
 
-      <TextInput
-        mode="outlined"
-        label="סיסמה"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-        style={styles.input}
-        outlineColor="#EAF0E4"
-        activeOutlineColor={colors.primary}
-      />
+        <TextInput
+          mode="outlined"
+          label="סיסמה"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+          style={styles.input}
+          outlineColor="#EAF0E4"
+          activeOutlineColor={colors.primary}
+        />
 
-      <Button
-        onPress={() => router.push("/(screens)/passwordForget")}
-        textColor={colors.secondary}
-      >
-        שכחתי סיסמא
-      </Button>
-      <Button
-        mode="contained"
-        onPress={handleLogin}
-        style={styles.button}
-        loading={loading}
-        disabled={loading}
-      >
-        התחברות
-      </Button>
+        <Button
+          onPress={() => router.push("/passwordForget")}
+          textColor={colors.secondary}
+        >
+          שכחתי סיסמא
+        </Button>
+        <Button
+          mode="contained"
+          onPress={handleLogin}
+          style={styles.button}
+          loading={loading}
+          disabled={loading}
+        >
+          התחברות
+        </Button>
 
-      <Button
-        onPress={() => router.push("/(screens)/Registration")}
-        textColor={colors.secondary}
-      >
-        אין לך חשבון? יצירת חשבון חדש כאן
-      </Button>
-    </ScrollView>
+        <Button
+          onPress={() => router.push("/registration")}
+          textColor={colors.secondary}
+        >
+          אין לך חשבון? יצירת חשבון חדש כאן
+        </Button>
+      </ScrollView>
+    </>
   );
 }
 
