@@ -21,7 +21,7 @@ export default function RegisterScreen() {
     setTimeout(() => {
       setLoading(false);
       router.replace("/(tabs)");
-    }, 1200); // סימולציה זמנית של קריאה לשרת
+    }, 1200); 
   };
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import { TextInput, Button, Text, useTheme } from "react-native-paper";
 import { useRouter } from "expo-router";
 
@@ -24,7 +24,10 @@ export default function LoginScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text variant="headlineMedium" style={[styles.title, { color: colors.primary }]}>
+      <Text
+        variant="headlineMedium"
+        style={[styles.title, { color: colors.primary }]}
+      >
         התחברות למערכת
       </Text>
 
@@ -59,6 +62,12 @@ export default function LoginScreen() {
         activeOutlineColor={colors.primary}
       />
 
+      <Button
+        onPress={() => router.push("/(screens)/passwordForget")}
+        textColor={colors.secondary}
+      >
+        שכחתי סיסמא
+      </Button>
       <Button
         mode="contained"
         onPress={handleLogin}
